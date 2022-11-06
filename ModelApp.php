@@ -8,7 +8,7 @@ class ModelApp{
     private $charset;
 
     public function __construct(){
-        $this->host     = "localhost";
+        $this->host     = "187.235.86.34";
         $this->db       =  'APP';
         $this->user     ="root";
         $this->password = "";
