@@ -10,7 +10,7 @@ class ModelApp{
     private $sslmode;
 
     public function __construct(){
-        $this->host     = "1serverappdb.mysql.database.azure.com";
+        $this->host     = "serverappdb.mysql.database.azure.com";
         $this->db       =  'APP';
         $this->user     ="administratorDB";
         $this->password = "m1Database!";
