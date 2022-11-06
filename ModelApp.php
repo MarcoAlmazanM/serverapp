@@ -9,10 +9,10 @@ class ModelApp{
     private $port;
 
     public function __construct(){
-        $this->host     = "187.235.86.34";
+        $this->host     = "1serverappdb.mysql.database.azure.com";
         $this->db       =  'APP';
-        $this->user     ="root";
-        $this->password = "";
+        $this->user     ="administratorDB";
+        $this->password = "m1Database!";
         $this->charset  = 'utf8mb4';
         $this->connection  = $this->connect(); 
         $this->port = "3306";
