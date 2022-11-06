@@ -9,7 +9,7 @@ class ModelApp{
     private $port;
 
     public function __construct(){
-        $this->host     = "192.168.68.109";
+        $this->host     = "187.235.86.34";
         $this->db       =  'APP';
         $this->user     ="root";
         $this->password = "";
