@@ -24,7 +24,7 @@ class ModelApp{
     
         try{
             
-            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";ssl-ca=" . $this->sslmode . ";charset=" . $this->charset ;
+            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";ssl-ca=" . $this->sslmode . ";charset=" . $this->charset . ";--ssl-mode=REQUIRED" ;
             $options = [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES   => false,
