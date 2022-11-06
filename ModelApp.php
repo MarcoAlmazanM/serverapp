@@ -24,10 +24,12 @@ class ModelApp{
     
         try{
             
-            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";ssl-ca=" . $this->sslmode . ";charset=" . $this->charset . ";--ssl-mode=REQUIRED" ;
+            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db  . ";charset=" . $this->charset ;
             $options = [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES   => false,
+                PDO::MYSQL_ATTR_SSL_CA => './DigiCertGlobalRootCA.crt.pem',
+	            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
             ];
             $pdo = new PDO($connection, $this->user, $this->password, $options);
     
