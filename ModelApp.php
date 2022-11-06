@@ -1,4 +1,9 @@
 <?php
+/*
+Author: Marco Antonio Almazan Martinez & Mariana Soto Ochoa
+Class Name : ModelApp
+Purpose: The purpose of this class is to handle all the queries and transactions that are need to complete the login or register.
+*/
 class ModelApp{
     private $connection;
     private $host;
@@ -7,19 +12,25 @@ class ModelApp{
     private $password;
     private $charset;
     private $port;
-    private $sslmode;
-
+    /*
+    Author: Marco Antonio Almazan Martinez & Mariana Soto Ochoa
+    Method Name : constructor
+    Purpose: The constructor of this class call the DB to start the connection.
+    */
     public function __construct(){
         $this->host     = "serverappdb.mysql.database.azure.com";
         $this->db       =  'APP';
         $this->user     ="administratorDB";
         $this->password = "m1Database!";
         $this->charset  = 'utf8mb4';
-        $this->connection  = $this->connect(); 
         $this->port = "3306";
-        $this->sslmode="./DigiCertGlobalRootCA.crt.pem";
+        $this->connection  = $this->connect(); 
     }
-
+    /*
+    Author: Marco Antonio Almazan Martinez & Mariana Soto Ochoa
+    Method Name : connect
+    Purpose: This method handles all the connection to the database.
+    */
     function connect(){
     
         try{
@@ -39,7 +50,12 @@ class ModelApp{
             print_r('Error connection: ' . $e->getMessage());
         }   
     }
-
+    /*
+    Author: Marco Antonio Almazan Martinez & Mariana Soto Ochoa
+    Method Name : login_user
+    Purpose: This method handles the transactions to the database related to the login process. This method return if a user is able to log in
+    or not.
+    */
     public function login_user($user, $pass){
         $arr = null;
         $query = $this->connect()->prepare('SELECT * FROM usuario WHERE idUsuario = :user AND contrasena = :pass');
@@ -59,8 +75,13 @@ class ModelApp{
         exit();
         
     }
-
-   public function register_user($username, $name, $lastName, $lastNameM, $email, $pass){
+    /*
+    Author: Marco Antonio Almazan Martinez & Mariana Soto Ochoa
+    Method Name : register_user
+    Purpose: This method handles the transactions to the database related to the register process. This method return if a new user is able 
+    to be register or not.
+    */
+    public function register_user($username, $name, $lastName, $lastNameM, $email, $pass){
         $arr = null;
         try{
             $sql= $this->connect()->prepare("INSERT INTO Usuario VALUES (?,?,?,?,?,?)");
