@@ -10,7 +10,6 @@ class Controller {
     }
 
     public function login(){
-        echo 'hola';
         $_POST = json_decode(file_get_contents('php://input'), true);
         if(isset($_POST['username']) && isset($_POST['password']) ){
             $username = $_POST['username'];

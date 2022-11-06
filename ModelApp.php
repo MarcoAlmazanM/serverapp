@@ -6,6 +6,7 @@ class ModelApp{
     private $user;
     private $password;
     private $charset;
+    private $port;
 
     public function __construct(){
         $this->host     = "187.235.86.34";
@@ -13,14 +14,15 @@ class ModelApp{
         $this->user     ="root";
         $this->password = "";
         $this->charset  = 'utf8mb4';
-        $this->connection  = $this->connect();  
+        $this->connection  = $this->connect(); 
+        $this->port = "3306";
     }
 
     function connect(){
     
         try{
             
-            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
+            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";charset=" . $this->charset ;
             $options = [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES   => false,
