@@ -17,14 +17,14 @@ class ModelApp{
         $this->charset  = 'utf8mb4';
         $this->connection  = $this->connect(); 
         $this->port = "3306";
-        $this->sslmode="require";
+        $this->sslmode="./DigiCertGlobalRootCA.crt.pem";
     }
 
     function connect(){
     
         try{
             
-            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";sslmode=" . $this->sslmode . ";charset=" . $this->charset ;
+            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";ssl-ca=" . $this->sslmode . ";charset=" . $this->charset ;
             $options = [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES   => false,
